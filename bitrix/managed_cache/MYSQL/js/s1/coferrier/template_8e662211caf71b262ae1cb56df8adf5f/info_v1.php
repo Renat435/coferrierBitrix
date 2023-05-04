@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/local/templates/coferrier" => "16832129134096",]; ?>

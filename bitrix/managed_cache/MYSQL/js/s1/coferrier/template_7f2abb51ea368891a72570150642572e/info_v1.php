@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/local/templates/coferrier/css/reset.min.css" => "1682994567862","/local/templates/coferrier/css/style.min.css" => "168299456826954",]; ?>

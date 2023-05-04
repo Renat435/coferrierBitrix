@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/local/templates/coferrier/js/main.min.js" => "168299437361356",]; ?>
