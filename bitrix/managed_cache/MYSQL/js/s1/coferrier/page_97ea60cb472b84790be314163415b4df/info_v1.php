@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/local/components/custom/index.slider/templates/.default/script.js" => "16837610831678",]; ?>

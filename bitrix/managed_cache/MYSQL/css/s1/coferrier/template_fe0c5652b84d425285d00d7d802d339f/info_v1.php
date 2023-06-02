@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/bitrix/wizards/bitrix/eshop/css/panel.css" => "1683135932240","/local/templates/coferrier/css/reset.min.css" => "1682994567862","/local/templates/coferrier/css/style.min.css" => "168299456826954","/bitrix/components/bitrix/menu/templates/.default/style.css" => "1683135924490","/local/templates/coferrier/styles.css" => "168339847733",]; ?>

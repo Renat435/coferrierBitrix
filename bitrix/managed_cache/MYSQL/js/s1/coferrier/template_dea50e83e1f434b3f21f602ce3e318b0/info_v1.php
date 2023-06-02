@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/local/templates/coferrier/js/fslightbox.js" => "167718967730524","/local/templates/coferrier/js/simplebar.js" => "168350731127046",]; ?>
