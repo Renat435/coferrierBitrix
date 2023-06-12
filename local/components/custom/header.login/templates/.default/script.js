@@ -19,7 +19,7 @@ BX.ready(function () {
                 if(response.data){
                     location.reload();
                 } else{
-                    alert('Неверный логин или пароль');
+                    myAlert('Неверный логин или пароль', 'error');
                 }
         }).catch(e => {
             console.log(e)

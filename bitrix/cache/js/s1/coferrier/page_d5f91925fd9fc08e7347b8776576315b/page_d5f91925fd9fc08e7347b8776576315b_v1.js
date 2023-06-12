@@ -1,0 +1,5 @@
+
+; /* Start:"a:4:{s:4:"full";s:79:"/local/components/custom/profile/templates/.default/script.min.js?1686339055804";s:6:"source";s:61:"/local/components/custom/profile/templates/.default/script.js";s:3:"min";s:0:"";s:3:"map";s:0:"";}"*/
+BX.ready(function(){const b=document.getElementById("profile-change-btn");const c=document.getElementById("change-profile-form");const f=new FormData(c);const e=Object.fromEntries(f);let avatarChanged=false;const d=document.getElementById("profile-change-avatar-input");const a=document.getElementById("preview-avatar");d.addEventListener("change",function(i){avatarChanged=true;b.disabled=false;const h=i.target.files[0];if(h){const g=new FileReader();g.addEventListener("load",function(){a.src=g.result});g.readAsDataURL(h)}});c.addEventListener("input",function(){const g=new FormData(c);const h=Object.fromEntries(g);if(JSON.stringify(e)===JSON.stringify(h)&&!avatarChanged){b.disabled=true}else{b.disabled=false}});b.addEventListener("click",function(){let keys=Object.keys(e);console.log(keys)})});
+/* End */
+;; /* /local/components/custom/profile/templates/.default/script.min.js?1686339055804*/

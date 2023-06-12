@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let myPlacemarks = response.data;
 
-        console.log(myPlacemarks);
-
         ymaps.ready(() => {
                 let map = new ymaps.Map("places__map", {
                     center: [myPlacemarks[0]['GPS_N'], myPlacemarks[0]['GPS_S']],

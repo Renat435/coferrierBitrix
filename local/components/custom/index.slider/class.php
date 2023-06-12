@@ -18,9 +18,9 @@ class IndexSlider extends CBitrixComponent
 
     private function getSliderItems()
     {
-        $iblockCode = 'index_slider'; // Укажите символьный код вашего инфоблока
-        $filter = ['CODE' => $iblockCode]; // Фильтр по символьному коду инфоблока
-        $select = ['ID']; // Выборка ID инфоблока
+        $iblockCode = 'index_slider';
+        $filter = ['CODE' => $iblockCode];
+        $select = ['ID'];
 
         $arIblock = IblockTable::getRow([
             'filter' => $filter,
@@ -29,8 +29,8 @@ class IndexSlider extends CBitrixComponent
 
         $iblockId = $arIblock['ID'];
 
-        $filter = ['IBLOCK_ID' => $iblockId]; // Фильтр по ID инфоблока
-        $select = ['NAME', 'PREVIEW_PICTURE', 'PREVIEW_TEXT']; // Выборка полей элементов инфоблока
+        $filter = ['IBLOCK_ID' => $iblockId];
+        $select = ['NAME', 'PREVIEW_PICTURE', 'PREVIEW_TEXT'];
 
         $arResult = [];
 

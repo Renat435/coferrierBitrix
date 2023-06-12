@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/local/components/custom/profile/templates/.default/script.js" => "16866039514682",]; ?>

@@ -14,6 +14,7 @@ $CurUri = $APPLICATION->GetCurUri();
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/swiper-bundle.min.js');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/fslightbox.min.js');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/simplebar.min.js');
+    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/phone_mask.js');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/main.min.js');
     // css
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/css/reset.min.css');
@@ -30,7 +31,7 @@ $CurUri = $APPLICATION->GetCurUri();
 <body>
 
 <?php
-$APPLICATION->ShowPanel();
+//$APPLICATION->ShowPanel();
 ?>
 
 <div class="preloader">
@@ -38,7 +39,8 @@ $APPLICATION->ShowPanel();
 </div>
 
 <div class="body__inner">
-    <header class="header" style="<?= (CUser::IsAuthorized()) ? 'position: relative' : '' ?>">
+    <header class="header">
+<!--        style="--><?//= (CUser::IsAuthorized()) ? 'position: relative' : '' ?><!--"-->
         <div class="container">
             <div class="header__inner">
                 <a href="/">
@@ -65,12 +67,27 @@ $APPLICATION->ShowPanel();
                     false
                 ); ?>
                 <?php if (CUser::IsAuthorized()): ?>
+
+                    <?php
+                    global $USER;
+                    $avatarPath = '';
+
+                    $userId = $USER->GetID();
+                    $userData = CUser::GetByID($userId)->Fetch();
+
+                    if ($userData) {
+                        $avatar = $userData['PERSONAL_PHOTO'];
+                        $avatarPath = ($avatar) ? CFile::GetPath($avatar) : '';
+                    }
+                    ?>
+
+
                     <div class="header__authorized">
                         <a href="#">
-                            <img src="assets/img/basket-icon.svg" alt="">
+                            <img src="<?= SITE_TEMPLATE_PATH ?>/img/svg/basket-icon.svg" alt="Корзина">
                         </a>
-                        <a class="header__authorized-profile" href="">
-                            <img class="header__authorized-profile-image" src="<?= SITE_TEMPLATE_PATH ?>/img/svg/default_user_icon.svg" alt="">
+                        <a class="header__authorized-profile" href="/profile">
+                            <img class="header__authorized-profile-image" src="<?=(strlen($avatarPath)) ? $avatarPath : SITE_TEMPLATE_PATH.'/img/svg/default_user_icon.svg'?>" alt="Профиль">
                         </a>
                     </div>
                 <?php else: ?>
