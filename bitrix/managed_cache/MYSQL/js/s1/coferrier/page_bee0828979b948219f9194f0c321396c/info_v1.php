@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/local/components/custom/index.places/templates/.default/script.js" => "16865108595434",]; ?>

@@ -9,11 +9,23 @@
         <form class="contacts__form">
             <div class="contacts__form-item">
                 <p class="contacts__form-item-text">Имя</p>
-                <input id="contacts-form-name" class="contacts__form-item-input" type="text">
+                <input
+                        id="contacts-form-name"
+                        class="contacts__form-item-input"
+                        type="text"
+                        value="<?=($arResult['USER']['NAME']) ? $arResult['USER']['NAME'] : ''?>"
+                        <?=($arResult['USER']['NAME']) ? 'readonly' : ''?>
+                >
             </div>
             <div class="contacts__form-item">
                 <p class="contacts__form-item-text">Email</p>
-                <input id="contacts-form-email" class="contacts__form-item-input" type="text">
+                <input
+                        id="contacts-form-email"
+                        class="contacts__form-item-input"
+                        type="email"
+                        value="<?=($arResult['USER']['EMAIL']) ? $arResult['USER']['EMAIL'] : ''?>"
+                        <?=($arResult['USER']['EMAIL']) ? 'readonly' : ''?>
+                >
             </div>
             <div class="contacts__form-item">
                 <p class="contacts__form-item-text">Сообщение</p>

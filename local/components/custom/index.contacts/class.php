@@ -3,12 +3,12 @@
 use Bitrix\Main\Engine\Contract\Controllerable;
 use Bitrix\Main\Engine\ActionFilter;
 use Bitrix\Main\ErrorCollection;
-use Bitrix\Main\Mail\Event;
+use Bitrix\Iblock\IblockTable;
 use Bitrix\Main\Errorable;
 use Bitrix\Main\Loader;
 
 
-if (! defined("B_PROLOG_INCLUDED") or B_PROLOG_INCLUDED !== true or ! Loader::includeModule("iblock")) {
+if (!defined("B_PROLOG_INCLUDED") or B_PROLOG_INCLUDED !== true or !Loader::includeModule("iblock")) {
     die();
 }
 
@@ -27,6 +27,16 @@ class IndexContacts extends CBitrixComponent implements Controllerable, Errorabl
      */
     public function executeComponent(): void
     {
+        global $USER;
+
+        if ($USER->IsAuthorized()) {
+            $this->arResult['USER'] = [
+                'EMAIL' => $USER->GetEmail(),
+                'NAME' => $USER->GetFirstName(),
+            ];
+        }
+
+
         $this->includeComponentTemplate();
     }
 
@@ -63,26 +73,39 @@ class IndexContacts extends CBitrixComponent implements Controllerable, Errorabl
 
     public function sendMessageAction($post)
     {
-// Получатель
-        $toEmail = 'renatparastaev@bk.ru';
+        $iblockCode = 'messages';
 
-// Тема письма
-        $subject = 'Тестовое сообщение';
+        $filter = ['CODE' => $iblockCode];
+        $select = ['ID'];
 
-// Текст письма
-        $message = 'Привет, это тестовое сообщение!';
+        $arIblock = IblockTable::getRow([
+            'filter' => $filter,
+            'select' => $select
+        ]);
 
-// Отправка письма
-        Event::send(array(
-            "EVENT_NAME" => "SEND_MAIL",
-            "LID" => "s1",
-            "C_FIELDS" => array(
-                "EMAIL_TO" => $toEmail,
-                "SUBJECT" => $subject,
-                "MESSAGE" => $message,
-            ),
-        ));
+        $iblockId = $arIblock['ID'];
 
-//        return $post;
+        $fields = array(
+            "IBLOCK_ID" => $iblockId,
+            "NAME" => $post['name'],
+            "PREVIEW_TEXT" => $post['message'],
+            "PROPERTY_VALUES" => array(
+                "EMAIL" => $post['email']
+            )
+        );
+
+        $element = new CIBlockElement;
+        $elementId = $element->Add($fields);
+
+        if ($elementId) {
+            return [
+                'type' => 'success',
+                'message' => 'Ваше сообщение успешно отправлено',
+            ];
+        }
+        return [
+            'type' => 'error',
+            'message' => 'Ошибка при отправке сообщения',
+        ];
     }
 }

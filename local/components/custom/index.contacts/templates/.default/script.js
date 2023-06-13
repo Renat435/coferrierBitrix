@@ -19,12 +19,13 @@ BX.ready(function () {
                     }
                 }
             }).then((response) => {
-            console.log(response);
-            // if(response.data){
-            //     location.reload();
-            // } else{
-            //     alert('Неверный логин или пароль');
-            // }
+
+                myAlert(response.data.message, response.data.type);
+
+                if(response.data.type === 'success'){
+                    messageInput.value = '';
+                }
+
         }).catch(e => {
             console.log(e)
         });
