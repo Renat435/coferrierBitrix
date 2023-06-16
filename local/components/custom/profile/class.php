@@ -113,6 +113,25 @@ class Profile extends CBitrixComponent implements Controllerable, Errorable
 
         $arFields = $_POST;
 
+        if($arFields['PERSONAL_PHONE']){
+            $filter = array(
+                'PERSONAL_PHONE' => $arFields['PERSONAL_PHONE']
+            );
+
+            $params = array(
+                'FIELDS' => array('ID')
+            );
+
+            $userQuery = CUser::GetList(($by="ID"), ($order="asc"), $filter, $params);
+
+            if ($userQuery->SelectedRowsCount() > 0) {
+                return [
+                    'status' => false,
+                    'message' => 'Пользователь с номером ' . $arFields['PERSONAL_PHONE'] . ' уже зарегистрирован',
+                ];
+            }
+        }
+
         if($arFields['LOGIN']){
             $arFields['EMAIL'] = $arFields['LOGIN'];
         }
@@ -127,9 +146,11 @@ class Profile extends CBitrixComponent implements Controllerable, Errorable
             ];
         }
 
+        $error = strip_tags($user->LAST_ERROR);
+
         return [
             'status' => false,
-            'message' => preg_replace('/<br\s?\/?>/', '', $user->LAST_ERROR),
+            'message' => $error,
         ];
 
     }
@@ -152,9 +173,10 @@ class Profile extends CBitrixComponent implements Controllerable, Errorable
             $user->Update($this->userId, array('PASSWORD' => $post['new-password'], 'CONFIRM_PASSWORD' => $post['repeat-new-password']));
 
             if ($user->LAST_ERROR) {
+                $error = strip_tags($user->LAST_ERROR);
                 return [
                     'type' => 'error',
-                    'message' => 'Ошибка при изменении пароля: '.$user->LAST_ERROR,
+                    'message' => 'Ошибка при изменении пароля: '.$error,
                 ];
             }
 

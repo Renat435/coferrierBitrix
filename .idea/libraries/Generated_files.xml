@@ -11,13 +11,14 @@
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_db3662f64ffa315085a75d99bc4a95eb/page_db3662f64ffa315085a75d99bc4a95eb_v1.min.js" />
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_ee3174db9f115c0bc780c577fc4d2349/page_ee3174db9f115c0bc780c577fc4d2349_v1.min.js" />
         <item url="file://$PROJECT_DIR$/local/components/custom/header.login/templates/.default/script.min.js" />
+        <item url="file://$PROJECT_DIR$/local/components/custom/header.registration/templates/.default/script.min.js" />
+        <item url="file://$PROJECT_DIR$/local/components/custom/header.registration/templates/.default/script.min.min.js" />
         <item url="file://$PROJECT_DIR$/local/components/custom/index.contacts/templates/.default/script.min.js" />
         <item url="file://$PROJECT_DIR$/local/components/custom/profile/templates/.default/script.min.js" />
         <item url="file://$PROJECT_DIR$/local/templates/coferrier/components/bitrix/news/news/bitrix/forum.topic.reviews/.default/script.min.js" />
         <item url="file://$PROJECT_DIR$/local/templates/coferrier/components/bitrix/news/news/bitrix/forum.topic.reviews/.default/script.min.min.js" />
         <item url="file://$PROJECT_DIR$/local/templates/coferrier/js/main.min.js" />
         <item url="file://$PROJECT_DIR$/local/templates/coferrier/js/myscripts.min.js" />
-        <item url="file://$PROJECT_DIR$/local/templates/coferrier/js/phone_mask.min.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -30,13 +31,14 @@
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_db3662f64ffa315085a75d99bc4a95eb/page_db3662f64ffa315085a75d99bc4a95eb_v1.min.js" />
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_ee3174db9f115c0bc780c577fc4d2349/page_ee3174db9f115c0bc780c577fc4d2349_v1.min.js" />
       <root url="file://$PROJECT_DIR$/local/components/custom/header.login/templates/.default/script.min.js" />
+      <root url="file://$PROJECT_DIR$/local/components/custom/header.registration/templates/.default/script.min.js" />
+      <root url="file://$PROJECT_DIR$/local/components/custom/header.registration/templates/.default/script.min.min.js" />
       <root url="file://$PROJECT_DIR$/local/components/custom/index.contacts/templates/.default/script.min.js" />
       <root url="file://$PROJECT_DIR$/local/components/custom/profile/templates/.default/script.min.js" />
       <root url="file://$PROJECT_DIR$/local/templates/coferrier/components/bitrix/news/news/bitrix/forum.topic.reviews/.default/script.min.js" />
       <root url="file://$PROJECT_DIR$/local/templates/coferrier/components/bitrix/news/news/bitrix/forum.topic.reviews/.default/script.min.min.js" />
       <root url="file://$PROJECT_DIR$/local/templates/coferrier/js/main.min.js" />
       <root url="file://$PROJECT_DIR$/local/templates/coferrier/js/myscripts.min.js" />
-      <root url="file://$PROJECT_DIR$/local/templates/coferrier/js/phone_mask.min.js" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

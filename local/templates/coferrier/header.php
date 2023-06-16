@@ -107,59 +107,14 @@ $CurUri = $APPLICATION->GetCurUri();
                         false
                     ); ?>
 
-                    <div class="popup" data-popup-name="registration">
-                        <div class="popup__inner">
-                            <div class="popup__close-area"></div>
-                            <div class="popup__body">
-                                <h4 class="popup__title">
-                                    Регистрация
-                                </h4>
-                                <button class="popup__close-btn" type="button">
-                                    <img src="assets/img/close-btn.svg" alt="">
-                                </button>
-                                <div class="header__popup-inner">
-                                    <div class="header__registration-input">
-                                        <div class="header__input-search input-popup">
-                                            <input class="header__input-search-input input-popup__input" type="text"
-                                                   maxlength="20" data-input-move>
-                                            <p class="header__input-search-text">Поиск</p>
-                                        </div>
-                                    </div>
-                                    <div class="header__registration-input">
-                                        <div class="header__input-search input-popup">
-                                            <input class="header__input-search-input input-popup__input" type="text"
-                                                   maxlength="20" data-input-move>
-                                            <p class="header__input-search-text">Поиск</p>
-                                        </div>
-                                    </div>
-                                    <div class="header__registration-input">
-                                        <div class="header__input-search input-popup">
-                                            <input class="header__input-search-input input-popup__input" type="text"
-                                                   maxlength="20" data-input-move>
-                                            <p class="header__input-search-text">Поиск</p>
-                                        </div>
-                                    </div>
-                                    <div class="header__registration-input">
-                                        <div class="header__input-search input-popup">
-                                            <input class="header__input-search-input input-popup__input" type="text"
-                                                   maxlength="20" data-input-move>
-                                            <p class="header__input-search-text">Поиск</p>
-                                        </div>
-                                    </div>
-                                    <div class="header__registration-input">
-                                        <div class="header__input-search input-popup">
-                                            <input class="header__input-search-input input-popup__input" type="text"
-                                                   maxlength="20" data-input-move>
-                                            <p class="header__input-search-text">Поиск</p>
-                                        </div>
-                                    </div>
-                                    <button class="popup-save-btn" type="button">
-                                        Сохранить
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <? $APPLICATION->IncludeComponent(
+                        "custom:header.registration",
+                        ".default",
+                        array(),
+                        false
+                    ); ?>
+
+
                 <?php endif; ?>
 
             </div>

@@ -663,6 +663,11 @@ main {
     background: var(--akaroaapprox);
     border-radius: 15px;
     padding: 14px 0;
+    transition: opacity .3s;
+}
+
+.popup-save-btn:disabled{
+    opacity: 0.5;
 }
 
 .password-show-hide {

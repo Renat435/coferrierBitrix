@@ -1,11 +1,3 @@
-.popup-save-btn:disabled{
-    opacity: 0.5;
-}
-
-.popup-save-btn{
-    transition: opacity .3s;
-}
-
 .popup__description{
     color: var(--akaroaapprox);
     font-family: Roboto;
