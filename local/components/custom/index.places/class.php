@@ -3,10 +3,10 @@
 use Bitrix\Main\Engine\Contract\Controllerable;
 use Bitrix\Main\Engine\ActionFilter;
 use Bitrix\Main\ErrorCollection;
-use Bitrix\Catalog\StoreTable;
 use Bitrix\Main\Errorable;
 use Bitrix\Main\Loader;
 use Bitrix\Main\Application;
+use Bitrix\Iblock\IblockTable;
 
 if (! defined("B_PROLOG_INCLUDED") or B_PROLOG_INCLUDED !== true or ! Loader::includeModule("iblock") or ! Loader::includeModule('catalog')) {
     die();
@@ -24,27 +24,56 @@ class IndexPlaces extends CBitrixComponent implements Controllerable, Errorable
 
     private function getPlaces()
     {
-        $storeManager = StoreTable::getList([
-            'select' => [
-                'ID',
-                'IMAGE_ID',
-                'TITLE',
-                'ADDRESS',
-                'SCHEDULE',
-                'PHONE',
-                'GPS_N',
-                'GPS_S',
-            ],
+        $arIblock = IblockTable::getRow([
+            'filter' => ['CODE' => 'cafe'],
+            'select' => ['ID']
         ]);
 
-        $stores = [];
+        $iblockId = $arIblock['ID'];
 
-        while ($store = $storeManager->fetch())
-        {
-            $store['IMAGE'] = CFile::GetPath($store['IMAGE_ID']);
-            $stores[] = $store;
+        $filter = array(
+            'IBLOCK_ID' => $iblockId,
+            'ACTIVE' => 'Y'
+        );
+
+        $selectFields = array(
+            'ID',
+            'NAME',
+        );
+
+        $propertyFields = array();
+        $propertyList = CIBlockProperty::GetList(array(), array('IBLOCK_ID' => $iblockId));
+        while ($property = $propertyList->Fetch()) {
+            $propertyFields[] = 'PROPERTY_' . $property['CODE'];
         }
-        return $stores;
+
+        $selectFields = array_merge($selectFields, $propertyFields);
+
+        $result = CIBlockElement::GetList(
+            array('ID' => 'ASC'),
+            $filter,
+            false,
+            false,
+            $selectFields
+        );
+
+        $arResult = [];
+
+        while ($arItem = $result->Fetch()) {
+            $gps = explode(",", $arItem['PROPERTY_CAFE_ADDRESS_VALUE']);
+            $arResult[] = [
+                'ID' => $arItem['ID'],
+                'TITLE' => $arItem['NAME'],
+                'ADDRESS' => $arItem['NAME'],
+                'GPS_N' => $gps[0],
+                'GPS_S' => $gps[1],
+                'IMAGE' => CFile::GetPath($arItem['PROPERTY_CAFE_IMAGE_VALUE']),
+                'SCHEDULE' => $arItem['PROPERTY_CAFE_SCHEDULE_VALUE'],
+                'PHONE' => $arItem['PROPERTY_CAFE_PHONE_VALUE'],
+            ];
+        }
+
+        return $arResult;
     }
 
     /**
@@ -91,7 +120,6 @@ class IndexPlaces extends CBitrixComponent implements Controllerable, Errorable
     public function getPlacesJSAction()
     {
         return $this->getPlaces();
-
 
         return [
             'PLACES' => $this->getPlaces(),

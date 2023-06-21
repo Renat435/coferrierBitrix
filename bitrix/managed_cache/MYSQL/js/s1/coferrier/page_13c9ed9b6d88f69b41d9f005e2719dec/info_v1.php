@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/local/templates/coferrier/components/bitrix/catalog.section/.default/script.js" => "16871840335521","/local/templates/coferrier/components/bitrix/catalog.item/boot/script.js" => "168733976741278",]; ?>

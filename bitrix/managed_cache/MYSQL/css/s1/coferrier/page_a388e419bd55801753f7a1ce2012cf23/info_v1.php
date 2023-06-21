@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/local/templates/coferrier/components/bitrix/catalog/catalog/style.css" => "1687153164959","/local/templates/coferrier/components/bitrix/catalog/catalog/bitrix/catalog.section.list/.default/style.css" => "16871531606240",]; ?>

@@ -31,7 +31,7 @@ $CurUri = $APPLICATION->GetCurUri();
 <body>
 
 <?php
-//$APPLICATION->ShowPanel();
+$APPLICATION->ShowPanel();
 ?>
 
 <div class="preloader">
@@ -39,8 +39,8 @@ $CurUri = $APPLICATION->GetCurUri();
 </div>
 
 <div class="body__inner">
-    <header class="header">
-<!--        style="--><?//= (CUser::IsAuthorized()) ? 'position: relative' : '' ?><!--"-->
+    <header class="header"
+        style="<?= (CUser::IsAuthorized()) ? 'position: relative' : '' ?>">
         <div class="container">
             <div class="header__inner">
                 <a href="/">

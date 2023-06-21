@@ -619,7 +619,7 @@ main {
     position: absolute;
     width: 15px;
     height: 15px;
-    background-image: url("../img/breadcrumbs-arrow.svg");
+    background-image: url("/local/templates/coferrier/img/svg/breadcrumbs-arrow.svg");
     background-size: cover;
     right: -15px;
     top: 50%;
@@ -734,7 +734,6 @@ main {
 .stock {
     min-height: 100vh;
     background: var(--akaroaapprox);
-    background-image: url("../img/stock-bg.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -965,7 +964,6 @@ main {
     top: 200px;
     left: 0;
     background-color: var(--akaroaapprox);
-    background-image: url("../img/advantages__banner.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

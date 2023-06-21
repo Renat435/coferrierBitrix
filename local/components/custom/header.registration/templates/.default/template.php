@@ -56,7 +56,7 @@
 
 
                 <button id="registration-submit" class="popup-save-btn" type="submit" disabled>
-                    Сохранить
+                    Зарегистрироваться
                 </button>
             </form>
         </div>

@@ -1,5 +1,11 @@
 <? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
+<?php
+echo '<pre>';
+print_r($arResult);
+echo '</pre>';
+?>
+
 <section class="places">
 
     <svg class="places__waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
