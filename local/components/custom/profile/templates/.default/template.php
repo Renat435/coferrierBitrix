@@ -1,6 +1,5 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 
-
 <section class="profile">
     <div class="container">
         <ul class="breadcrumbs">
@@ -116,7 +115,8 @@
                                     </svg>
                     </button>
 
-                    <button id="profile-user-change-password" class="profile__user-bottom-btn popup-link" data-popup-name="change-password" type="button">
+                    <button id="profile-user-change-password" class="profile__user-bottom-btn popup-link"
+                            data-popup-name="change-password" type="button">
                         Изменить пароль
                     </button>
 
@@ -138,30 +138,39 @@
 
                                     <div class="header__registration-input">
                                         <div class="header__input-search input-popup">
-                                            <input class="header__input-search-input input-popup__input" name="current-password" type="password" maxlength="20" minlength="8" data-input-move>
+                                            <input class="header__input-search-input input-popup__input"
+                                                   name="current-password" type="password" maxlength="20" minlength="8"
+                                                   data-input-move>
                                             <p class="header__input-search-text">Текущий пароль</p>
                                             <button class="password-show-hide" type="button">
-                                                <img class="password-show-hide__img" src="<?=SITE_TEMPLATE_PATH?>/img/svg/eye.svg" alt="eye">
+                                                <img class="password-show-hide__img"
+                                                     src="<?= SITE_TEMPLATE_PATH ?>/img/svg/eye.svg" alt="eye">
                                             </button>
                                         </div>
                                     </div>
 
                                     <div class="header__registration-input">
                                         <div class="header__input-search input-popup">
-                                            <input class="header__input-search-input input-popup__input" name="new-password" type="password" maxlength="20" minlength="8" data-input-move>
+                                            <input class="header__input-search-input input-popup__input"
+                                                   name="new-password" type="password" maxlength="20" minlength="8"
+                                                   data-input-move>
                                             <p class="header__input-search-text">Новый пароль</p>
                                             <button class="password-show-hide" type="button">
-                                                <img class="password-show-hide__img" src="<?=SITE_TEMPLATE_PATH?>/img/svg/eye.svg" alt="eye">
+                                                <img class="password-show-hide__img"
+                                                     src="<?= SITE_TEMPLATE_PATH ?>/img/svg/eye.svg" alt="eye">
                                             </button>
                                         </div>
                                     </div>
 
                                     <div class="header__registration-input">
                                         <div class="header__input-search input-popup">
-                                            <input class="header__input-search-input input-popup__input" name="repeat-new-password" type="password" maxlength="20" minlength="8" data-input-move>
+                                            <input class="header__input-search-input input-popup__input"
+                                                   name="repeat-new-password" type="password" maxlength="20"
+                                                   minlength="8" data-input-move>
                                             <p class="header__input-search-text">Повторите пароль</p>
                                             <button class="password-show-hide" type="button">
-                                                <img class="password-show-hide__img" src="<?=SITE_TEMPLATE_PATH?>/img/svg/eye.svg" alt="eye">
+                                                <img class="password-show-hide__img"
+                                                     src="<?= SITE_TEMPLATE_PATH ?>/img/svg/eye.svg" alt="eye">
                                             </button>
                                         </div>
                                     </div>
@@ -183,255 +192,105 @@
                     История заказов
                 </h5>
                 <div class="profile__history-list">
-                    <div class="profile__history-item">
-                        <div class="profile__history-item-top">
-                            <div class="profile__history-item-top-images">
-                                <!--                                <img class="profile__history-item-top-image one" src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg" alt="">-->
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <p class="profile__history-item-top-image">
-                                    +3
-                                </p>
+
+                    <?php foreach ($arResult['ORDERS'] as $item): ?>
+                        <div class="profile__history-item">
+                            <div class="profile__history-item-top">
+                                <div class="profile__history-item-top-images">
+                                    <?php if (count($item['ELEMENTS']) === 1): ?>
+
+                                        <img class="profile__history-item-top-image one"
+                                             src="<?=$item['ELEMENTS'][0]['PREVIEW_PICTURE']?>" alt="">
+
+                                    <?php else: ?>
+
+                                        <?php foreach ($item['ELEMENTS'] as $key => $picture):?>
+
+                                            <?php if($key < 3):?>
+                                                <img class="profile__history-item-top-image"
+                                                     src="<?=$picture['PREVIEW_PICTURE']?>"
+                                                     alt="">
+
+                                            <?php else:?>
+
+                                                <p class="profile__history-item-top-image">
+                                                    +<?=count($item['ELEMENTS']) - 3?>
+                                                </p>
+
+                                                <?php break;?>
+
+                                            <?php endif;?>
+
+                                        <?php endforeach;?>
+
+                                    <?php endif; ?>
+                                </div>
+                                <div class="profile__history-item-top-info">
+                                    <p class="profile__history-item-top-info-text"><?= $item['DATE_CREATE'] ?></p>
+                                    <p class="profile__history-item-top-info-text"><?= $item['TOTAL_PRICE'] ?>р</p>
+                                </div>
                             </div>
-                            <div class="profile__history-item-top-info">
-                                <p class="profile__history-item-top-info-text">15.01.2023</p>
-                                <p class="profile__history-item-top-info-text">500р</p>
-                            </div>
-                        </div>
 
-                        <p class="profile__history-item-status">Статус заказа: <span
-                                    class="completed">выполнен</span>
-                        </p>
-
-                        <button class="profile__history-item-more-btn popup-link" data-popup-name="order-info"
-                                type="button">
-                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_94_2)">
-                                    <path
-                                            d="M25.0003 4.16666C13.4899 4.16666 4.16699 13.4896 4.16699 25C4.16699 36.5104 13.4899 45.8333 25.0003 45.8333C36.5107 45.8333 45.8337 36.5104 45.8337 25C45.8337 13.4896 36.5107 4.16666 25.0003 4.16666ZM27.0837 35.4167H22.917V22.9167H27.0837V35.4167ZM27.0837 18.75H22.917V14.5833H27.0837V18.75Z"
-                                            fill="#DCC7B8"/>
-                                </g>
-                            </svg>
-                        </button>
-
-                    </div>
-                    <div class="profile__history-item">
-                        <div class="profile__history-item-top">
-                            <div class="profile__history-item-top-images">
-                                <!--                                <img class="profile__history-item-top-image one" src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg" alt="">-->
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <p class="profile__history-item-top-image">
-                                    +3
-                                </p>
-                            </div>
-                            <div class="profile__history-item-top-info">
-                                <p class="profile__history-item-top-info-text">15.01.2023</p>
-                                <p class="profile__history-item-top-info-text">500р</p>
-                            </div>
-                        </div>
-
-                        <p class="profile__history-item-status">Статус заказа: <span class="expectation">ожидает получения</span>
-                        </p>
-
-                        <button class="profile__history-item-more-btn popup-link" data-popup-name="order-info"
-                                type="button">
-                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_94_2)">
-                                    <path
-                                            d="M25.0003 4.16666C13.4899 4.16666 4.16699 13.4896 4.16699 25C4.16699 36.5104 13.4899 45.8333 25.0003 45.8333C36.5107 45.8333 45.8337 36.5104 45.8337 25C45.8337 13.4896 36.5107 4.16666 25.0003 4.16666ZM27.0837 35.4167H22.917V22.9167H27.0837V35.4167ZM27.0837 18.75H22.917V14.5833H27.0837V18.75Z"
-                                            fill="#DCC7B8"/>
-                                </g>
-                            </svg>
-                        </button>
-
-                    </div>
-                    <div class="profile__history-item">
-                        <div class="profile__history-item-top">
-                            <div class="profile__history-item-top-images">
-                                <!--                                <img class="profile__history-item-top-image one" src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg" alt="">-->
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <p class="profile__history-item-top-image">
-                                    +3
-                                </p>
-                            </div>
-                            <div class="profile__history-item-top-info">
-                                <p class="profile__history-item-top-info-text">15.01.2023</p>
-                                <p class="profile__history-item-top-info-text">500р</p>
-                            </div>
-                        </div>
-
-                        <p class="profile__history-item-status">Статус заказа: <span class="canceled">отменён</span>
-                        </p>
-
-                        <button class="profile__history-item-more-btn popup-link" data-popup-name="order-info"
-                                type="button">
-                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_94_2)">
-                                    <path
-                                            d="M25.0003 4.16666C13.4899 4.16666 4.16699 13.4896 4.16699 25C4.16699 36.5104 13.4899 45.8333 25.0003 45.8333C36.5107 45.8333 45.8337 36.5104 45.8337 25C45.8337 13.4896 36.5107 4.16666 25.0003 4.16666ZM27.0837 35.4167H22.917V22.9167H27.0837V35.4167ZM27.0837 18.75H22.917V14.5833H27.0837V18.75Z"
-                                            fill="#DCC7B8"/>
-                                </g>
-                            </svg>
-                        </button>
-
-                    </div>
-                    <div class="profile__history-item">
-                        <div class="profile__history-item-top">
-                            <div class="profile__history-item-top-images">
-                                <!--                                <img class="profile__history-item-top-image one" src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg" alt="">-->
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <img class="profile__history-item-top-image"
-                                     src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                     alt="">
-                                <p class="profile__history-item-top-image">
-                                    +3
-                                </p>
-                            </div>
-                            <div class="profile__history-item-top-info">
-                                <p class="profile__history-item-top-info-text">15.01.2023</p>
-                                <p class="profile__history-item-top-info-text">500р</p>
-                            </div>
-                        </div>
-
-                        <p class="profile__history-item-status">Статус заказа: <span
-                                    class="getting-ready">готовиться</span></p>
-
-                        <button class="profile__history-item-more-btn popup-link" data-popup-name="order-info"
-                                type="button">
-                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_94_2)">
-                                    <path
-                                            d="M25.0003 4.16666C13.4899 4.16666 4.16699 13.4896 4.16699 25C4.16699 36.5104 13.4899 45.8333 25.0003 45.8333C36.5107 45.8333 45.8337 36.5104 45.8337 25C45.8337 13.4896 36.5107 4.16666 25.0003 4.16666ZM27.0837 35.4167H22.917V22.9167H27.0837V35.4167ZM27.0837 18.75H22.917V14.5833H27.0837V18.75Z"
-                                            fill="#DCC7B8"/>
-                                </g>
-                            </svg>
-                        </button>
-
-                    </div>
-                </div>
-
-                <div class="popup" data-popup-name="order-info">
-                    <div class="popup__inner">
-                        <div class="popup__close-area"></div>
-                        <div class="popup__body">
-                            <p class="profile__history-info-text">
-                                Дата: 22.02.2022
-                            </p>
-                            <p class="profile__history-info-text">
-                                Сумма: 500р
+                            <p class="profile__history-item-status">
+                                Статус заказа:
+                                <span class="<?= $item['STATUS_CLASS'] ?>"><?= $item['STATUS'] ?></span>
                             </p>
 
-                            <button class="popup__close-btn" type="button">
-                                <img src="assets/img/close-btn.svg" alt="">
+                            <button class="profile__history-item-more-btn popup-link"
+                                    data-popup-name="order-info<?= $item['ID'] ?>"
+                                    type="button">
+                                <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_94_2)">
+                                        <path
+                                                d="M25.0003 4.16666C13.4899 4.16666 4.16699 13.4896 4.16699 25C4.16699 36.5104 13.4899 45.8333 25.0003 45.8333C36.5107 45.8333 45.8337 36.5104 45.8337 25C45.8337 13.4896 36.5107 4.16666 25.0003 4.16666ZM27.0837 35.4167H22.917V22.9167H27.0837V35.4167ZM27.0837 18.75H22.917V14.5833H27.0837V18.75Z"
+                                                fill="#DCC7B8"/>
+                                    </g>
+                                </svg>
                             </button>
 
-                            <ul class="profile__history-info-list">
-                                <li class="profile__history-info-list-item">
-                                    <img class="profile__history-info-list-item-image"
-                                         src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                         alt="">
-                                    <p class="profile__history-info-list-item-name">Капучино</p>
-
-                                    <p class="profile__history-info-list-item-price">
-                                        2 x 250р
-                                    </p>
-                                </li>
-                                <li class="profile__history-info-list-item">
-                                    <img class="profile__history-info-list-item-image"
-                                         src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                         alt="">
-                                    <p class="profile__history-info-list-item-name">Латте</p>
-
-                                    <p class="profile__history-info-list-item-price">
-                                        1 x 250р
-                                    </p>
-                                </li>
-                                <li class="profile__history-info-list-item">
-                                    <img class="profile__history-info-list-item-image"
-                                         src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                         alt="">
-                                    <p class="profile__history-info-list-item-name">Латте</p>
-
-                                    <p class="profile__history-info-list-item-price">
-                                        1 x 250р
-                                    </p>
-                                </li>
-                                <li class="profile__history-info-list-item">
-                                    <img class="profile__history-info-list-item-image"
-                                         src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                         alt="">
-                                    <p class="profile__history-info-list-item-name">Латте</p>
-
-                                    <p class="profile__history-info-list-item-price">
-                                        1 x 250р
-                                    </p>
-                                </li>
-                                <li class="profile__history-info-list-item">
-                                    <img class="profile__history-info-list-item-image"
-                                         src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                         alt="">
-                                    <p class="profile__history-info-list-item-name">Латте</p>
-
-                                    <p class="profile__history-info-list-item-price">
-                                        1 x 250р
-                                    </p>
-                                </li>
-                                <li class="profile__history-info-list-item">
-                                    <img class="profile__history-info-list-item-image"
-                                         src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                         alt="">
-                                    <p class="profile__history-info-list-item-name">Латте</p>
-
-                                    <p class="profile__history-info-list-item-price">
-                                        1 x 250р
-                                    </p>
-                                </li>
-                                <li class="profile__history-info-list-item">
-                                    <img class="profile__history-info-list-item-image"
-                                         src="<?= SITE_TEMPLATE_PATH ?>/img/history-image-1.jpg"
-                                         alt="">
-                                    <p class="profile__history-info-list-item-name">Латте</p>
-
-                                    <p class="profile__history-info-list-item-price">
-                                        1 x 250р
-                                    </p>
-                                </li>
-                            </ul>
-
                         </div>
-                    </div>
+
+                        <div class="popup" data-popup-name="order-info<?= $item['ID'] ?>">
+                            <div class="popup__inner">
+                                <div class="popup__close-area"></div>
+                                <div class="popup__body">
+                                    <p class="profile__history-info-text">
+                                        Дата: <?= $item['DATE_CREATE'] ?>
+                                    </p>
+                                    <p class="profile__history-info-text">
+                                        Сумма: <?= $item['TOTAL_PRICE'] ?>р
+                                    </p>
+
+                                    <button class="popup__close-btn" type="button">
+                                        <img src="<?= SITE_TEMPLATE_PATH ?>/img/svg/close-btn.svg" alt="close">
+                                    </button>
+
+                                    <ul class="profile__history-info-list">
+
+                                        <?php foreach ($item['ELEMENTS'] as $element): ?>
+                                            <li class="profile__history-info-list-item">
+                                                <img class="profile__history-info-list-item-image"
+                                                     src="<?= $element['PREVIEW_PICTURE'] ?>"
+                                                     alt="">
+                                                <p class="profile__history-info-list-item-name">
+                                                    <?= $element['NAME'] ?>
+                                                </p>
+
+                                                <p class="profile__history-info-list-item-price">
+                                                    <?= $element['COUNT'] ?> x <?= $element['PRICE'] ?>р
+                                                </p>
+                                            </li>
+                                        <?php endforeach; ?>
+
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    <?php endforeach; ?>
+
                 </div>
 
 

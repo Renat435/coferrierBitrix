@@ -8,6 +8,10 @@
     --rodeo-dust: #cbac96;
     --iroko: #422e20;
     --bistre: #36261b;
+    --pastel-green: #67d967;
+    --gold-tips: #e8b812;
+    --crimson: #e81239;
+    --alabaster: #C5AA73FF;
 }
 
 [data-simplebar] {
@@ -1856,16 +1860,20 @@ main {
     background: var(--akaroaapprox);
 }
 
+.profile__history-item-status .queue {
+    background: var(--alabaster);
+}
+
 .profile__history-item-status .expectation {
-    background: #67d967;
+    background: var(--pastel-green);
 }
 
 .profile__history-item-status .canceled {
-    background: #e81239;
+    background: var(--crimson);
 }
 
 .profile__history-item-status .getting-ready {
-    background: #e8b812;
+    background: var(--gold-tips);
 }
 
 .profile__history-info-list {
@@ -2026,4 +2034,72 @@ main {
     line-height: 22px;
     padding: 10px 0;
     text-align: center;
+}
+
+.about-us__info{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+}
+.about-us__info-img{
+    width: 320px;
+    height: 320px;
+    border: 1px solid var(--white);
+}
+
+.about-us__info-img img{
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+}
+
+.about-us__info-content{
+    padding: 20px;
+    font-size: 20px;
+    background-color: var(--akaroaapprox);
+    font-family: Roboto;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    color: var(--shingle-fawn);
+    font-weight: 500;
+}
+
+.left{
+    border-radius: 20px 0 0 20px;
+}
+.right{
+    border-radius: 0 20px 20px 0;
+}
+
+.about-us__social{
+    background-color: var(--akaroaapprox);
+    width: min-content;
+    border-radius: 20px;
+    display: flex;
+    margin-top: 30px;
+    padding: 15px;
+}
+.about-us__social-href{
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+}
+.about-us__social-title{
+    white-space: nowrap;
+    font-size: 18px;
+    display: flex;
+    font-family: Roboto;
+    align-items: center;
+    line-height: 18px;
+    font-weight: 500;
+    color: var(--shingle-fawn);
+}
+.about-us__social-href img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

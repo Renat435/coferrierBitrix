@@ -11,6 +11,7 @@
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_10de1ab4caacfe436a64298b4375ceb2/page_10de1ab4caacfe436a64298b4375ceb2_v1.min.js" />
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_13c9ed9b6d88f69b41d9f005e2719dec/page_13c9ed9b6d88f69b41d9f005e2719dec_v1.min.js" />
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_144d02a980d5abff3d014f4b022f2e9f/page_144d02a980d5abff3d014f4b022f2e9f_v1.min.js" />
+        <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_185a4dc4a23c186ce2594c21ebf969c1/page_185a4dc4a23c186ce2594c21ebf969c1_v1.min.js" />
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_2f270bbc5ea8b6acb88022ee37125c78/page_2f270bbc5ea8b6acb88022ee37125c78_v1.min.js" />
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_3213ebfb49934e088eac773d287b68cd/page_3213ebfb49934e088eac773d287b68cd_v1.min.js" />
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_41466c61e613043da4cf8c70c9a13656/page_41466c61e613043da4cf8c70c9a13656_v1.min.js" />
@@ -29,6 +30,7 @@
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_cbf5311003c7b179415e6b0bfb2b678f/page_cbf5311003c7b179415e6b0bfb2b678f_v1.min.js" />
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_d5f91925fd9fc08e7347b8776576315b/page_d5f91925fd9fc08e7347b8776576315b_v1.min.js" />
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_db3662f64ffa315085a75d99bc4a95eb/page_db3662f64ffa315085a75d99bc4a95eb_v1.min.js" />
+        <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_e1c8a07fcd48b1ec35a5145a17e1108c/page_e1c8a07fcd48b1ec35a5145a17e1108c_v1.min.js" />
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_e26c4a2bb7852e6176532ba04e7499df/page_e26c4a2bb7852e6176532ba04e7499df_v1.min.js" />
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_e542d16e1cbfb9a37cd3c52d7cec4f80/page_e542d16e1cbfb9a37cd3c52d7cec4f80_v1.min.js" />
         <item url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_ee3174db9f115c0bc780c577fc4d2349/page_ee3174db9f115c0bc780c577fc4d2349_v1.min.js" />
@@ -52,7 +54,7 @@
         <item url="file://$PROJECT_DIR$/local/templates/coferrier/components/bitrix/news/news/bitrix/forum.topic.reviews/.default/script.min.js" />
         <item url="file://$PROJECT_DIR$/local/templates/coferrier/components/bitrix/news/news/bitrix/forum.topic.reviews/.default/script.min.min.js" />
         <item url="file://$PROJECT_DIR$/local/templates/coferrier/js/main.min.js" />
-        <item url="file://$PROJECT_DIR$/local/templates/coferrier/js/myscripts.min.js" />
+        <item url="file://$PROJECT_DIR$/local/templates/coferrier/js/search.min.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -65,6 +67,7 @@
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_10de1ab4caacfe436a64298b4375ceb2/page_10de1ab4caacfe436a64298b4375ceb2_v1.min.js" />
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_13c9ed9b6d88f69b41d9f005e2719dec/page_13c9ed9b6d88f69b41d9f005e2719dec_v1.min.js" />
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_144d02a980d5abff3d014f4b022f2e9f/page_144d02a980d5abff3d014f4b022f2e9f_v1.min.js" />
+      <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_185a4dc4a23c186ce2594c21ebf969c1/page_185a4dc4a23c186ce2594c21ebf969c1_v1.min.js" />
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_2f270bbc5ea8b6acb88022ee37125c78/page_2f270bbc5ea8b6acb88022ee37125c78_v1.min.js" />
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_3213ebfb49934e088eac773d287b68cd/page_3213ebfb49934e088eac773d287b68cd_v1.min.js" />
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_41466c61e613043da4cf8c70c9a13656/page_41466c61e613043da4cf8c70c9a13656_v1.min.js" />
@@ -83,6 +86,7 @@
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_cbf5311003c7b179415e6b0bfb2b678f/page_cbf5311003c7b179415e6b0bfb2b678f_v1.min.js" />
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_d5f91925fd9fc08e7347b8776576315b/page_d5f91925fd9fc08e7347b8776576315b_v1.min.js" />
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_db3662f64ffa315085a75d99bc4a95eb/page_db3662f64ffa315085a75d99bc4a95eb_v1.min.js" />
+      <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_e1c8a07fcd48b1ec35a5145a17e1108c/page_e1c8a07fcd48b1ec35a5145a17e1108c_v1.min.js" />
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_e26c4a2bb7852e6176532ba04e7499df/page_e26c4a2bb7852e6176532ba04e7499df_v1.min.js" />
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_e542d16e1cbfb9a37cd3c52d7cec4f80/page_e542d16e1cbfb9a37cd3c52d7cec4f80_v1.min.js" />
       <root url="file://$PROJECT_DIR$/bitrix/cache/js/s1/coferrier/page_ee3174db9f115c0bc780c577fc4d2349/page_ee3174db9f115c0bc780c577fc4d2349_v1.min.js" />
@@ -106,7 +110,7 @@
       <root url="file://$PROJECT_DIR$/local/templates/coferrier/components/bitrix/news/news/bitrix/forum.topic.reviews/.default/script.min.js" />
       <root url="file://$PROJECT_DIR$/local/templates/coferrier/components/bitrix/news/news/bitrix/forum.topic.reviews/.default/script.min.min.js" />
       <root url="file://$PROJECT_DIR$/local/templates/coferrier/js/main.min.js" />
-      <root url="file://$PROJECT_DIR$/local/templates/coferrier/js/myscripts.min.js" />
+      <root url="file://$PROJECT_DIR$/local/templates/coferrier/js/search.min.js" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

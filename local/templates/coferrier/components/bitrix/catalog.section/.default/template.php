@@ -149,6 +149,19 @@ $containerName = 'container-' . $navParams['NavNum'];
 
 ?>
 
+<?php
+$current_url = $_SERVER['REQUEST_URI'];
+$parsed_url = parse_url($current_url);
+
+if (isset($parsed_url['path'])) {
+    $path = $parsed_url['path'];
+
+    if ($path === '/catalog/search') {
+        $arResult['NAME'] = 'Поиск';
+    }
+}
+?>
+
 <ul class="breadcrumbs">
     <li class="breadcrumbs__item">
         <a class="breadcrumbs__item-link" href="/">Главная</a>
@@ -160,7 +173,6 @@ $containerName = 'container-' . $navParams['NavNum'];
         <a class="breadcrumbs__item-link" href="/catalog"><?= $arResult['NAME'] ?></a>
     </li>
 </ul>
-
 
 <h3 class="page-title">
     <?= $arResult['NAME'] ?>

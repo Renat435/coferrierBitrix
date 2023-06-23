@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/local/components/custom/basket/templates/.default/script.js" => "16874908737899",]; ?>

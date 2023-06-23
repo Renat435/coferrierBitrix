@@ -11,6 +11,7 @@ $CurUri = $APPLICATION->GetCurUri();
     use Bitrix\Main\Page\Asset;
 
     // js
+    Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/search.js');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/swiper-bundle.min.js');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/fslightbox.min.js');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/simplebar.min.js');
@@ -30,25 +31,22 @@ $CurUri = $APPLICATION->GetCurUri();
 </head>
 <body>
 
-<?php
-$APPLICATION->ShowPanel();
-?>
-
 <div class="preloader">
     <div class="spinner"></div>
 </div>
 
 <div class="body__inner">
-    <header class="header"
-        style="<?= (CUser::IsAuthorized()) ? 'position: relative' : '' ?>">
+    <header class="header">
         <div class="container">
             <div class="header__inner">
                 <a href="/">
                     <img src="<?= SITE_TEMPLATE_PATH ?>/img/svg/Logo.svg" alt="logo">
                 </a>
                 <div class="header__input-search">
-                    <input class="header__input-search-input" type="text" maxlength="20" data-input-move>
-                    <p class="header__input-search-text">Поиск</p>
+                    <form id="header-input-search" action="">
+                        <input class="header__input-search-input" type="text" maxlength="20" data-input-move>
+                        <p class="header__input-search-text">Поиск</p>
+                    </form>
                 </div>
                 <? $APPLICATION->IncludeComponent("bitrix:menu", "header_menu", array(
                     "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
@@ -83,7 +81,7 @@ $APPLICATION->ShowPanel();
 
 
                     <div class="header__authorized">
-                        <a href="#">
+                        <a href="/basket/">
                             <img src="<?= SITE_TEMPLATE_PATH ?>/img/svg/basket-icon.svg" alt="Корзина">
                         </a>
                         <a class="header__authorized-profile" href="/profile">

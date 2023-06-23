@@ -5,6 +5,8 @@ use Bitrix\Main\Engine\ActionFilter;
 use Bitrix\Main\Engine\Contract\Controllerable;
 use Bitrix\Main\Errorable;
 use Bitrix\Main\ErrorCollection;
+use Bitrix\Iblock\IblockTable;
+use Bitrix\Catalog\Product\Price;
 
 if (! defined("B_PROLOG_INCLUDED") or B_PROLOG_INCLUDED !== true or ! Loader::includeModule("iblock")) {
     die();
@@ -40,10 +42,78 @@ class Profile extends CBitrixComponent implements Controllerable, Errorable
         ];
     }
 
+    private function getOrders()
+    {
+        $statusToClass = [
+            'В очереди' => 'queue',
+            'Готовится' => 'getting-ready',
+            'Ожидает получения' => 'expectation',
+            'Выполнен' => 'completed',
+            'Отменён' => 'canceled',
+        ];
+
+        $arOrder= IblockTable::getRow([
+            'filter' => ['CODE' => 'orders'],
+            'select' => ['ID']
+        ]);
+
+        $arOrderID = $arOrder['ID'];
+
+        $orders = CIBlockElement::GetList(
+            array('ID' => 'ASC'),
+            [
+                'IBLOCK_ID' => $arOrderID,
+                'ACTIVE' => 'Y',
+                'PROPERTY_BUYER' => $this->userId,
+            ],
+            false,
+            false,
+            [
+                'NAME',
+                'PROPERTY_ORDER_STATUS',
+                'PROPERTY_PLACE',
+                'PROPERTY_BUYER',
+                'PROPERTY_GOODS',
+                'DATE_CREATE'
+            ],
+        );
+
+        $result = [];
+
+        while($order = $orders->fetch()){
+
+            $result[$order['ID']]['ID'] = $order['ID'];
+            $result[$order['ID']]['STATUS'] = $order['PROPERTY_ORDER_STATUS_VALUE'];
+            $result[$order['ID']]['STATUS_CLASS'] = $statusToClass[$order['PROPERTY_ORDER_STATUS_VALUE']];
+            $result[$order['ID']]['TOTAL_PRICE'] = $order['NAME'];
+            $result[$order['ID']]['DATE_CREATE'] = explode(' ', $order['DATE_CREATE'])[0];
+
+            $item = explode('&', $order['PROPERTY_GOODS_VALUE']);
+
+            $id = intval($item[0]);
+            $count = $item[2];
+
+            $product = CIBlockElement::GetByID($id)->Fetch();
+
+            $price = intval(CPrice::GetBasePrice($id)['PRICE']);
+
+
+            $result[$order['ID']]['ELEMENTS'][] = [
+                'NAME' => $product['NAME'],
+                'COUNT' => $count,
+                'PREVIEW_PICTURE' => CFile::GetPath($product['PREVIEW_PICTURE']),
+                'PRICE' => $price,
+            ];
+        }
+
+        return $result;
+    }
+
     private function getArResult(): array
     {
         return [
             'PROFILE_INFO' => $this->getProfileInfo(),
+            'ORDERS' => $this->getOrders(),
         ];
     }
 

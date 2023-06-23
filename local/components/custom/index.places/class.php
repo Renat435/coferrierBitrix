@@ -120,10 +120,5 @@ class IndexPlaces extends CBitrixComponent implements Controllerable, Errorable
     public function getPlacesJSAction()
     {
         return $this->getPlaces();
-
-        return [
-            'PLACES' => $this->getPlaces(),
-            'TEMPLATE_PATH' => Application::getInstance()->getContext()->getSite()->getDocumentRoot(),
-        ];
     }
 }

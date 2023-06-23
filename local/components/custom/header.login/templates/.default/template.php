@@ -12,12 +12,7 @@
             <button class="popup__close-btn" type="button">
                 <img src="<?=SITE_TEMPLATE_PATH?>/img/svg/close-btn.svg" alt="close">
             </button>
-            <div class="header__popup-inner">
-                <!--                                --><?//$APPLICATION->IncludeComponent("bitrix:system.auth.form", "header_auth", Array(
-                //
-                //                                ),
-                //                                    false
-                //                                );?>
+            <form id="header-sign-in-form" class="header__popup-inner">
                 <div class="header__registration-input">
                     <div class="header__input-search input-popup">
                         <input id="header-input-login" class="header__input-search-input input-popup__input" type="text"
@@ -25,8 +20,6 @@
                         <p class="header__input-search-text">Email</p>
                     </div>
                 </div>
-
-
 
                 <div class="header__registration-input">
                     <div class="header__input-search input-popup">
@@ -38,10 +31,11 @@
                         </button>
                     </div>
                 </div>
-                <button id="header-login-btn" class="popup-save-btn" type="button">
+
+                <button id="header-login-btn" class="popup-save-btn" type="submit">
                     Войти
                 </button>
-            </div>
+            </form>
         </div>
     </div>
 </div>

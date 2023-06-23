@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/bitrix/components/bitrix/search.suggest.input/templates/.default/script.js" => "168313605112503","/local/templates/coferrier/components/bitrix/catalog.section/.default/script.js" => "16871840335521","/local/templates/coferrier/components/bitrix/catalog.item/item/script.js" => "168733976741278",]; ?>
